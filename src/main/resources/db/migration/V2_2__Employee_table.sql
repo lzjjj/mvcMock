@@ -1,6 +1,0 @@
-CREATE TABLE `employee` (
-  `id`                 BIGINT       NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `company_id`  BIGINT,
-  `name`         VARCHAR(20)  NOT NULL,
-  `create_time` TIMESTAMP DEFAULT NOW()
-);

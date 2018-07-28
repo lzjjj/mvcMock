@@ -20,7 +20,7 @@ public class Company {
     private ZonedDateTime create_time = ZonedDateTime.now();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.LAZY)
-    private List <Employee> employees = new ArrayList <>();
+    private List <Employee> employees;
 
 
 
