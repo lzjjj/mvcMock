@@ -50,13 +50,13 @@ public class CompanyController {
         return companyService.deleteCompany( id );
     }
 
-//
-//    @Transactional
-//    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-//
-//    public Optional <Company> findById(@PathVariable Long id) {
-//        return companyRepository.findById( id );
-//    }
+
+    @Transactional
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+
+    public Optional <Company> findById(@PathVariable Long id) {
+        return companyService.findACompany( id );
+    }
 //
 //    @Transactional
 //    @DeleteMapping(path = "/employee/{Eid}", produces = MediaType.APPLICATION_JSON_VALUE)

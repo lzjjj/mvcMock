@@ -99,5 +99,14 @@ public class CompanyControllerTests {
                 .andExpect( status().isOk() )
                 .andExpect( jsonPath( "name").value( "ali" ) );
     }
+    @Test
+    public void should_return_company_when_findACpmpany() throws Exception {
+        Company company1 = new Company( 1, "ali" );
+        given( companyService.findACompany( any() ) ).willReturn( java.util.Optional.ofNullable( company1 ) );
+
+        mockMvc.perform( get( "/api/v1/companies/{id}",1 ))
+                .andExpect( status().isOk() )
+                .andExpect( jsonPath( "name").value( "ali" ) );
+    }
 
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service("companyService")
 public class CompanyServiceImpl implements CompanyService {
@@ -43,5 +44,10 @@ public class CompanyServiceImpl implements CompanyService {
         Company company = companyRepository.findById( id ).get();
         companyRepository.delete( company );
         return company;
+    }
+
+    @Override
+    public Optional <Company> findACompany(Long id) {
+        return companyRepository.findById( id );
     }
 }
