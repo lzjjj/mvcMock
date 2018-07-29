@@ -57,16 +57,9 @@ public class CompanyController {
     public Optional <Company> findById(@PathVariable Long id) {
         return companyService.findACompany( id );
     }
-//
-//    @Transactional
-//    @DeleteMapping(path = "/employee/{Eid}", produces = MediaType.APPLICATION_JSON_VALUE)
-//
-//    public ResponseEntity deleteEmployee(@PathVariable Long Eid) {
-//        Employee employee = employeeRepository.findById( Eid ).get();
-//        employeeRepository.delete( employee );
-//        return ResponseEntity.status( HttpStatus.NO_CONTENT ).build();
-//    }
-//
+
+
+
 //    @Transactional
 //    @GetMapping(path = "/employees", produces = MediaType.APPLICATION_JSON_VALUE)
 //    public List<Employee> getEmployees() {

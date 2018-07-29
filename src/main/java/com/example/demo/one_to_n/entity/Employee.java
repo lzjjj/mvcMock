@@ -11,7 +11,8 @@ import java.time.ZonedDateTime;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+
 
     private String name;
 
@@ -26,11 +27,16 @@ public class Employee {
     public Employee() {
     }
 
-    public long getId() {
+    public Employee(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
