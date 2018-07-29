@@ -32,21 +32,17 @@ public class CompanyController {
         return companyService.addCompany( company );
     }
 
-//    @Transactional
-//    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public List <Company> findAll() {
-//        return companyRepository.findAll();
-//    }
-//
-//    @Transactional
-//    @PutMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity updateCompany(@RequestBody Company company) {
-//        company.getEmployees().stream()
-//                .filter( employee -> employee.getCompany() == null )
-//                .forEach( employee -> employee.setCompany( company ) );
-//        companyRepository.save( company );
-//        return ResponseEntity.status( HttpStatus.NO_CONTENT ).build();
-//    }
+    @Transactional
+    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List <Company> findAll() {
+        return companyService.findAllCompany();
+    }
+
+    @Transactional
+    @PutMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Company updateCompany(@RequestBody Company company) {
+        return companyService.updateCompany(company);
+    }
 //
 //    @Transactional
 //    @DeleteMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
