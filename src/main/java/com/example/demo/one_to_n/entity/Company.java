@@ -25,7 +25,7 @@ public class Company {
 
 
     public Company(long id, String name) {
-        this.id = id;
+//        this.id = id;
         this.name = name;
     }
 
