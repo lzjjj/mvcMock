@@ -27,9 +27,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -88,6 +86,16 @@ public class CompanyControllerTests {
 
         mockMvc.perform( put( "/api/v1/companies" ).contentType( MediaType.APPLICATION_JSON_VALUE )
                 .content( mapper.writeValueAsString( company1 ) ) )
+                .andExpect( status().isOk() )
+                .andExpect( jsonPath( "name").value( "ali" ) );
+    }
+
+    @Test
+    public void should_return_company_when_deleteCpmpany() throws Exception {
+        Company company1 = new Company( 1, "ali" );
+        given( companyService.deleteCompany( any() ) ).willReturn( company1 );
+
+        mockMvc.perform( delete( "/api/v1/companies/{id}",1 ))
                 .andExpect( status().isOk() )
                 .andExpect( jsonPath( "name").value( "ali" ) );
     }

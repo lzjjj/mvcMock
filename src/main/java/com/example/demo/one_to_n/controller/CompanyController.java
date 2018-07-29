@@ -43,15 +43,13 @@ public class CompanyController {
     public Company updateCompany(@RequestBody Company company) {
         return companyService.updateCompany(company);
     }
-//
-//    @Transactional
-//    @DeleteMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public Company delete(@PathVariable Long id) {
-//        Company company = companyRepository.findById( id ).get();
-//        companyRepository.delete( company );
-//        return company;
-//    }
-//
+
+    @Transactional
+    @DeleteMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Company delete(@PathVariable Long id) {
+        return companyService.deleteCompany( id );
+    }
+
 //
 //    @Transactional
 //    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

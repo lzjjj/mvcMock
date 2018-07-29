@@ -37,4 +37,11 @@ public class CompanyServiceImpl implements CompanyService {
                 .forEach( employee -> employee.setCompany( company ) );
        return companyRepository.save( company );
     }
+
+    @Override
+    public Company deleteCompany(Long id) {
+        Company company = companyRepository.findById( id ).get();
+        companyRepository.delete( company );
+        return company;
+    }
 }

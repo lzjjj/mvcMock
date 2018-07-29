@@ -8,4 +8,5 @@ public interface CompanyService {
     public Company addCompany(Company company);
     public List<Company> findAllCompany();
     public Company updateCompany(Company company);
+    public Company deleteCompany(Long id);
 }
